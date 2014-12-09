@@ -39,3 +39,21 @@ def create_dataframe():
 
 d = create_dataframe()
 print(d)
+
+# Countries with more than 10 gold medals.
+print(d[d['gold'] > 10])
+
+def avg_bronze_count():
+    data = {
+        'country_name': Series(countries),
+        'gold': Series(gold),
+        'silver': Series(silver),
+        'bronze': Series(bronze)
+    }
+    frame = DataFrame(data)
+
+    one_gold = frame[frame['gold'] >= 1]
+    print(one_gold['bronze'])
+    avg = numpy.mean(one_gold['bronze'])
+
+    return avg
